@@ -23,7 +23,8 @@ public class Partida {
         scanner = new Scanner(System.in);
     }
 
-    public void repartirFichas() {
+    
+    public void repartirFichas() { //COMO ESTABA ANTES
         for (int i = 0; i < 7; i++) {
             jugador1.robarFicha(monton);
             jugador2.robarFicha(monton);

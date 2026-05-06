@@ -1,3 +1,5 @@
+package main;///Esto lo he añadido para que me funcionara en eclipse
+import model.Partida;///y esto también
 public class Main {
     public static void main(String[] args) {
         //Mensaje de bienvenida
