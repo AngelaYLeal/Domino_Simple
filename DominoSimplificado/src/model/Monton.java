@@ -39,6 +39,8 @@ public class Monton {
     public int cantidadFichas() {
         return fichas.size(); //Devuelve la cantidad de fichas restantes en el montón
     }
+    
+    
 
     @Override
     public String toString() {

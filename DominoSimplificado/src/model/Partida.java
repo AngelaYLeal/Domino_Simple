@@ -64,14 +64,20 @@ public class Partida {
            //o cuando la ficha que falta es imposible de poner por todas las que hay en la mesa
            //Es decir, que cuando mesa tiene todas las de 4 y las de 5, por ejemplo
            //Es decir, que sin robar, en el montón y en las manos no hay más f de 4 y 5.
-             if (jugadorActual.cantidadFichas() == 0) {
+           		if (jugadorActual.cantidadFichas() == 0) {
            terminarPartida(jugadorActual);
            break;
+           		}
+           		if (noSePuedePoner()){
+           			cierre();
+           break;
        		}
+        
             
             jugadorActual = jugadorActual == jugador1 ? jugador2 : jugador1;//lo de antes pero para simplificarlo en una linea   
         }
     }
+    
 
     public boolean realizarTurno(Jugador jugador) {
         jugador.mostrarMano();
@@ -144,9 +150,32 @@ public class Partida {
         System.out.println("Puntos totales: " + puntos);
     }
     
+    public boolean noSePuedePoner() {
+    			//Excepción al comenzar para ahorrarnos una iteración
+    			if (mesa.estaVacia()) return false;
+    	//Mesa: Contamos cuantas fichas hay en la mesa de cada extremo   
+    	//Si son 7, se termina la partida
+    	int extIzq = mesa.getExtremoIzquierdo();
+    	int extDer = mesa.getExtremoDerecho();
+    	
+    	int cantIzq = mesa.nFichasX(extIzq);
+	    int cantDer = mesa.nFichasX(extDer);
+	    
+	    if (extIzq == extDer) {
+	        return cantIzq == 7; //Si los dos extremos son iguales y hay 7 en la mesa, bloqueada
+	    } else {
+	        return (cantIzq == 7 && cantDer == 7);//Depende de si los dos son 7 o del otro se pueden poner
+	    }
+    }
+    	
+    
+    
     public void cierre(){
     	int puntosJ1 = jugador1.calcularPuntos();
     	int puntosJ2 = jugador2.calcularPuntos();
+    	System.out.println(" Fin de la partida ");
+    	System.out.println(jugador1.getNombre() + " tiene " + puntosJ1 + "puntos");
+    	System.out.println(jugador2.getNombre() + " tiene " + puntosJ2 + "puntos");
     }
-    }
+    
 }

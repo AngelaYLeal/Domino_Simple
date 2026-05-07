@@ -58,6 +58,19 @@ public class Mesa {
         }
         fichasMesa.addLast(ficha); //Agrega la ficha al final de la lista.
     }
+    
+    public int nFichasX(int numero) {//Para comprobación del cierre
+        int n = 0;
+        for (int i = 0; i < fichasMesa.size(); i++) {
+        Ficha f = fichasMesa.get(i);
+        //Comparar ficha por ambos lados
+         if (f.getIzquierda() == numero || f.getDerecha() == numero) {
+                    n++;//aumenta el contador, que si llega a siete significa bloqueo de partida
+          }
+         }
+            
+        return n;
+    }
 
     @Override
     public String toString() {
