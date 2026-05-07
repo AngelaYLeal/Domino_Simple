@@ -29,6 +29,12 @@ public class Monton {
         }
         return fichas.remove(0); //Robamos la primera ficha del montón
     }
+    
+    public boolean puedoPasar() {//Permite la condición de pasar
+    	if (fichas.isEmpty()) {
+            return true;        
+        }else return false;
+    }
 
     public int cantidadFichas() {
         return fichas.size(); //Devuelve la cantidad de fichas restantes en el montón

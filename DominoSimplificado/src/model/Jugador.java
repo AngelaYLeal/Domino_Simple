@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Jugador {
     private String nombre;
     private ArrayList<Ficha> mano;
+    
 
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -22,8 +23,11 @@ public class Jugador {
             //System.out.println(nombre + " ha robado: " + fichaRobada);
         } else {
             //System.out.println(nombre + " no pudo robar una ficha (monton vacío).");
+        	System.out.println("El montón está vacío, debes pasar");
         }
     }
+    
+    
 
     public void mostrarMano() {
         System.out.print("Fichas" + nombre + ": ");
