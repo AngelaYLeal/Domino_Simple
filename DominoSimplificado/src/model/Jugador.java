@@ -27,8 +27,29 @@ public class Jugador {
         }
     }
     
-    
+    public void robarFichaDirecta(Ficha ficha) {
+        mano.add(ficha);
+    }
 
+    public boolean tieneDobleSeis() {
+        for (Ficha f : mano) {
+            if (f.getIzquierda() == 6 && f.getDerecha() == 6) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int getIndiceDobleSeis() {
+        for (int i = 0; i < mano.size(); i++) {
+            Ficha f = mano.get(i);
+            if (f.getIzquierda() == 6 && f.getDerecha() == 6) {
+                return i;
+            }
+        }
+        return -1; // no encontrado
+    }
+    
     public void mostrarMano() {
         System.out.print("Fichas" + nombre + ": ");
         for (Ficha ficha : mano) {
